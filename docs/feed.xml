@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RG Mevzuat Değişiklik Takibi</title>
+    <link>https://www.resmigazete.gov.tr/</link>
+    <description>RG fihristinden otomatik (AUTO) eşleşen mevzuat değişiklikleri</description>
+    <language>tr</language>
+    <lastBuildDate>Mon, 22 Jun 2026 14:27:08 +0300</lastBuildDate>
+    <atom:link href="https://saglikyz.github.io/rg-compliance-mevzuat-takip/feed.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.db
+logs/
+archive/
+
+# Seed verisi — SharePoint source of truth; public repoda tam liste ifşa olmasın.
+# (CSV'ler şu an kökte; data/seed/ kullanılırsa diye o desenler de eklendi.)
+data/seed/*.csv
+data/seed/*.clean.csv
+Mevzuat_All.csv
+Bolum_List.csv
+Madde_List.csv
+*.clean.csv
+
+# NOT: docs/feed.xml KASITLI olarak ignore EDİLMEZ — GitHub Pages için commit'lenir.
