@@ -20,6 +20,12 @@ def push_feed(local_path: str = "docs/feed.xml",
               branch: str | None = None, dest_path: str = "docs/feed.xml",
               commit_message: str = "chore: update RG feed") -> str:
     """feed.xml'i repoya yükle (create/update). short commit SHA döner."""
+    # Kurumsal SSL inspection ortamında OS sertifika deposunu kullan (certifi yerine).
+    try:
+        import truststore
+        truststore.inject_into_ssl()
+    except ImportError:
+        pass
     from github import Github  # PyGithub
 
     token = token or os.environ.get("GITHUB_TOKEN")

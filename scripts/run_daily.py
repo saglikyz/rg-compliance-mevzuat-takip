@@ -28,6 +28,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
+# Kurumsal SSL inspection (kök CA) ortamında requests/PyGithub'ın certifi yerine
+# Windows sertifika deposunu kullanması için (git schannel gibi). Yoksa sessiz geç.
+try:
+    import truststore
+    truststore.inject_into_ssl()
+except ImportError:
+    pass
+
 try:
     from dotenv import load_dotenv
     load_dotenv(os.path.join(ROOT, ".env"))
