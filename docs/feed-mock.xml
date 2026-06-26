@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RG Mevzuat Değişiklik Takibi</title>
+    <link>https://www.resmigazete.gov.tr/</link>
+    <description>RG fihristinden otomatik (AUTO) eşleşen mevzuat değişiklikleri</description>
+    <language>tr</language>
+    <lastBuildDate>Fri, 26 Jun 2026 09:47:13 +0300</lastBuildDate>
+    <atom:link href="https://saglikyz.github.io/rg-compliance-mevzuat-takip/feed-mock.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[TEST] Veri Sorumluları Sicili Hakkında Yönetmelik</title>
+      <link>https://www.resmigazete.gov.tr/eskiler/2026/06/20260624-9001.htm</link>
+      <guid isPermaLink="false">MOCK-MEV-006|2026-06-24|33290</guid>
+      <category>AUTO</category>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0300</pubDate>
+      <description>{"table": "Mevzuat_All", "id": "MEV-006", "fields": {"isUpdated": true, "updateDate": "2026-06-24", "rgRef": "RG 24.06.2026/33290", "rgUrl": "https://www.resmigazete.gov.tr/eskiler/2026/06/20260624-9001.htm"}}</description>
+    </item>
+    <item>
+      <title>[TEST] REKABETİN KORUNMASI HAKKINDA KANUN</title>
+      <link>https://www.resmigazete.gov.tr/eskiler/2026/06/20260625-9002.htm</link>
+      <guid isPermaLink="false">MOCK-MEV-030|2026-06-25|33291</guid>
+      <category>AUTO</category>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0300</pubDate>
+      <description>{"table": "Mevzuat_All", "id": "MEV-030", "fields": {"isUpdated": true, "updateDate": "2026-06-25", "rgRef": "RG 25.06.2026/33291", "rgUrl": "https://www.resmigazete.gov.tr/eskiler/2026/06/20260625-9002.htm"}}</description>
+    </item>
+    <item>
+      <title>[TEST] Beşeri Tıbbi Ürünlerin Klinik Araştırmaları Hakkında Yönetmelik</title>
+      <link>https://www.resmigazete.gov.tr/eskiler/2026/06/20260626-9003.htm</link>
+      <guid isPermaLink="false">MOCK-MEV-048|2026-06-26|33292</guid>
+      <category>AUTO</category>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0300</pubDate>
+      <description>{"table": "Mevzuat_All", "id": "MEV-048", "fields": {"isUpdated": true, "updateDate": "2026-06-26", "rgRef": "RG 26.06.2026/33292", "rgUrl": "https://www.resmigazete.gov.tr/eskiler/2026/06/20260626-9003.htm"}}</description>
+    </item>
+  </channel>
+</rss>
