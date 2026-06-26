@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
-"""docs/feed.xml'i GitHub deposuna push eden İSKELET (PyGithub).
+"""docs/feed.xml'i GitHub deposuna push eder (PyGithub).
 
-DİKKAT: Repo + token henüz hazır DEĞİL. Bu script şu an ÇAĞRILMAMALI;
-gerçek değerler bağlanınca aktive edilecek. main() guard ile korunuyor.
+Ortam değişkenleri (.env'den; tek standart isim seti):
+  GITHUB_TOKEN  : repo push yetkili PAT
+  GITHUB_REPO   : 'org/repo' (örn. saglikyz/rg-compliance-mevzuat-takip)
+  GITHUB_BRANCH : varsayılan 'main'
+  FEED_URL      : yayımlanan feed URL'i (bilgi amaçlı; push hedefi DEĞİL)
 
-Ortam değişkenleri (sonra .env'den):
-  GH_TOKEN   : repo push yetkili PAT
-  GH_REPO    : 'org/repo'
-  GH_BRANCH  : varsayılan 'main'
-  FEED_PATH  : repo içi hedef yol, vars. 'docs/feed.xml'
-                (GitHub Pages "deploy from branch" yalnızca kök ya da /docs servis eder)
+Hedef yol repo içinde sabit 'docs/feed.xml' — GitHub Pages "deploy from branch"
+yalnızca kök ya da /docs servis eder.
 """
 from __future__ import annotations
 
@@ -18,20 +17,16 @@ import os
 
 def push_feed(local_path: str = "docs/feed.xml",
               *, token: str | None = None, repo: str | None = None,
-              branch: str | None = None, dest_path: str | None = None,
+              branch: str | None = None, dest_path: str = "docs/feed.xml",
               commit_message: str = "chore: update RG feed") -> str:
-    """feed.xml'i repoya yükle (create/update). short SHA döner.
+    """feed.xml'i repoya yükle (create/update). short commit SHA döner."""
+    from github import Github  # PyGithub
 
-    Henüz çağrılmamalı — repo/token bağlanınca kullanılacak.
-    """
-    from github import Github, InputGitTreeElement  # noqa: F401  (PyGithub)
-
-    token = token or os.environ.get("GH_TOKEN")
-    repo = repo or os.environ.get("GH_REPO")
-    branch = branch or os.environ.get("GH_BRANCH", "main")
-    dest_path = dest_path or os.environ.get("FEED_PATH", "docs/feed.xml")
+    token = token or os.environ.get("GITHUB_TOKEN")
+    repo = repo or os.environ.get("GITHUB_REPO")
+    branch = branch or os.environ.get("GITHUB_BRANCH", "main")
     if not token or not repo:
-        raise RuntimeError("GH_TOKEN / GH_REPO tanımlı değil — repo henüz hazır değil.")
+        raise RuntimeError("GITHUB_TOKEN / GITHUB_REPO tanımlı değil (.env kontrol et).")
 
     with open(local_path, encoding="utf-8") as fh:
         content = fh.read()
@@ -47,9 +42,9 @@ def push_feed(local_path: str = "docs/feed.xml",
 
 
 def main() -> int:
-    # GÜVENLİK GUARD: repo/token bağlanmadan push yapma.
+    # GÜVENLİK GUARD: kazara push'u önlemek için açık onay.
     if os.environ.get("RG_FEED_PUSH_ENABLED") != "1":
-        print("push devre dışı: RG_FEED_PUSH_ENABLED=1 değil (repo/token henüz hazır değil).")
+        print("push devre dışı: RG_FEED_PUSH_ENABLED=1 değil.")
         return 0
     sha = push_feed()
     print("pushed:", sha)

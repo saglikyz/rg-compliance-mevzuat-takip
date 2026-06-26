@@ -8,7 +8,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 # (/public servis edilmez) -> docs/feed.xml.
 FEED_OUT = os.path.join(ROOT, "docs", "feed.xml")
 FEED_SELF_URL = os.environ.get(
-    "FEED_SELF_URL", "https://saglikyz.github.io/rg-compliance-mevzuat-takip/feed.xml"
+    "FEED_URL", "https://saglikyz.github.io/rg-compliance-mevzuat-takip/feed.xml"
 )
 
 # Eşleştirme kayan penceresi (gün)
