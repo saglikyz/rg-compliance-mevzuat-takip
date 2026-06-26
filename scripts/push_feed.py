@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""public/feed.xml'i GitHub deposuna push eden İSKELET (PyGithub).
+"""docs/feed.xml'i GitHub deposuna push eden İSKELET (PyGithub).
 
 DİKKAT: Repo + token henüz hazır DEĞİL. Bu script şu an ÇAĞRILMAMALI;
 gerçek değerler bağlanınca aktive edilecek. main() guard ile korunuyor.
@@ -8,14 +8,15 @@ Ortam değişkenleri (sonra .env'den):
   GH_TOKEN   : repo push yetkili PAT
   GH_REPO    : 'org/repo'
   GH_BRANCH  : varsayılan 'main'
-  FEED_PATH  : repo içi hedef yol, vars. 'public/feed.xml'
+  FEED_PATH  : repo içi hedef yol, vars. 'docs/feed.xml'
+                (GitHub Pages "deploy from branch" yalnızca kök ya da /docs servis eder)
 """
 from __future__ import annotations
 
 import os
 
 
-def push_feed(local_path: str = "public/feed.xml",
+def push_feed(local_path: str = "docs/feed.xml",
               *, token: str | None = None, repo: str | None = None,
               branch: str | None = None, dest_path: str | None = None,
               commit_message: str = "chore: update RG feed") -> str:
@@ -28,7 +29,7 @@ def push_feed(local_path: str = "public/feed.xml",
     token = token or os.environ.get("GH_TOKEN")
     repo = repo or os.environ.get("GH_REPO")
     branch = branch or os.environ.get("GH_BRANCH", "main")
-    dest_path = dest_path or os.environ.get("FEED_PATH", "public/feed.xml")
+    dest_path = dest_path or os.environ.get("FEED_PATH", "docs/feed.xml")
     if not token or not repo:
         raise RuntimeError("GH_TOKEN / GH_REPO tanımlı değil — repo henüz hazır değil.")
 

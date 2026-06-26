@@ -22,7 +22,7 @@ feed/        → RSS üretici
 db/          → SQLite (rg_state.db)
 archive/     → günlük ham JSON
 logs/        → scrape + eşleştirme logları
-public/      → feed.xml (GitHub Pages'te yayınlanır)
+docs/        → feed.xml (GitHub Pages'te yayınlanır; deploy from branch /docs)
 
 ## Kurallar
 - Sadece BelgeTürü=Mevzuat olanlar izlenir (51 kayıt). Kılavuzlar kapsam dışı.
